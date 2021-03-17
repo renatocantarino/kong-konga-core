@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  dcservice:
+    container_name: dc-api
+    build: 
+       context: ./DC/DC
+       dockerfile: Dockerfile
+    ports: 
+       - "7001:7001"
+
+  marvelservice:
+     container_name: marvel-api
+     build: 
+        context: ./Marvel/Marvel
+        dockerfile: Dockerfile
+     ports: 
+        - "7002:7002" 
+networks: 
+  default:
+    name: kong-net
